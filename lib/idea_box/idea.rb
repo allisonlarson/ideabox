@@ -7,16 +7,16 @@ class Idea
     @description = attributes["description"]
     @rank        = attributes["rank"] || 0
     @id          = attributes["id"]
-    @tags        = attributes["tags"]
+    @tags        = parse_tags(attributes["tags"])
   end
 
   def save
     IdeaStore.create(to_h)
   end
 
-  # def tag(all_tags)
-  #   all_tags.split(',') unless all_tags.nil?
-  # end
+  def parse_tags(tag)
+    tag.split(',') unless tag.nil?
+  end
 
   def to_h
     {

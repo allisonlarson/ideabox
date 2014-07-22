@@ -43,4 +43,9 @@ class IdeaBoxApp < Sinatra::Base
     ideas = IdeaStore.find_tags(tag)
     erb :tags, locals: {:tag => tag, :ideas => ideas}
   end
+
+  get '/:id/details' do |details|
+    idea = IdeaStore.find(id.to_i)
+    erb :details, locals: {:idea => idea}
+  end
 end

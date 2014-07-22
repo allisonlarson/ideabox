@@ -57,7 +57,8 @@ class IdeaStore
 
   def self.find_tags(tag)
     database.transaction do
-      database['ideas'].select {|idea| idea.values_at('tags') == tag}
+      something = database['ideas'].select {|idea| idea['tags'].split(',').any? do|tags| tags == tag end}
     end
   end
+
 end

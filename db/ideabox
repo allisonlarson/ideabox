@@ -2,13 +2,17 @@
 ideas:
 - title: Does
   description: this work?
-  tags: What
+  tags: What, How
 - title: Edit
   description: Yes!
-  tags: What
+  tags: What, How
 - title: How about
-  description: Ranksing?
-  rank: 1
+  description: Ranking?
+  tags: What, How
 - title: Tag
-  description: TAg TAG
-  tags: What
+  description: TAG TAG
+  rank: 1
+  tags: What, How
+- title: this
+  description: is a test
+  tags: What, How

@@ -1,4 +1,9 @@
 <h1>Ideas tagged with <%= tag %></h1>
 <p>
-  <%= ideas %>
+  <% ideas.each do |idea| %>
+  <%= idea['title'] %><br/>
+  <%= idea['description'] %><br/>
+  <%= idea['tags'] %><br/><br/>
+  <% end %>
+  
 </p>
