@@ -1,18 +1,38 @@
 ---
 ideas:
-- title: Does
-  description: this work?
-  tags: What, How
-- title: Edit
-  description: Yes!
-  tags: What, How
-- title: How about
-  description: Ranking?
-  tags: What, How
-- title: Tag
-  description: TAG TAG
-  rank: 1
-  tags: What, How
-- title: this
-  description: is a test
-  tags: What, How
+- title: 'test '
+  description: test test test test
+  tags: test, test, test
+  resource1: test.com
+  resource2: test.com
+  resource3: test.com
+- title: test
+  description: test test
+  tags: test, test, TEST
+  resource1: test test
+  resource2: ''
+  resource3: ''
+- title: test
+  description: test test
+  tags: test, test, test
+  resource1: ''
+  resource2: ''
+  resource3: ''
+- title: test
+  description: test test test
+  tags: test, test, test
+  resource1: test.com
+  resource2: ''
+  resource3: ''
+- title: tessst
+  description: tesssst
+  tags: test, TEST, Test
+  resource1: ''
+  resource2: ''
+  resource3: ''
+- title: test
+  description: 'test test '
+  tags: test, test
+  resource1: test
+  resource2: ''
+  resource3: ''

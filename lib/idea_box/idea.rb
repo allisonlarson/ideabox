@@ -1,6 +1,13 @@
 class Idea
   include Comparable
-  attr_reader :title, :description, :rank, :id, :tags
+  attr_reader :title,
+              :description,
+              :rank,
+              :id,
+              :tags,
+              :resource1,
+              :resource2,
+              :resource3
 
   def initialize(attributes = {})
     @title       = attributes["title"]
@@ -8,6 +15,9 @@ class Idea
     @rank        = attributes["rank"] || 0
     @id          = attributes["id"]
     @tags        = parse_tags(attributes["tags"])
+    @resource1   = attributes["resource1"]
+    @resource2   = attributes["resource2"]
+    @resource3   = attributes["resource3"]
   end
 
   def save
@@ -23,7 +33,8 @@ class Idea
       "title" => title,
       "description" => description,
       "rank" => rank,
-      "tags" => tags
+      "tags" => tags,
+      "resource" => resource
     }
   end
 

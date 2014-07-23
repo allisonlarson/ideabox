@@ -6,7 +6,10 @@
       <input type='text' name='idea[title]'/><br/>
       <textarea name='idea[description]'></textarea><br/>
       <input type='text' name='idea[tags]'/><br/>
-      <input type='submit'/>
+      <input type='text' name='idea[resource1]'/><br/>
+      <input type='text' name='idea[resource2]'/><br/>
+      <input type='text' name='idea[resource3]'/><br/>
+       <input type='submit'/>
     </form>
 
     <h3>Exsisting Ideas</h3>
@@ -21,8 +24,9 @@
           <%= idea.description %><br/>
           <a href="/<%= idea.id %>/edit">Edit</a>
           <% idea.tags.each do |tag| %>
-          <a href="/<%= tag %>"><%= tag %></a>
+          <a href="/<%= tag %>"><%= tag %></a><br/>
           <% end %>
+          <a href="/<%= idea.id %>/details">Details</a>
           <form action='/<%= idea.id %>' method='POST'>
             <input type="hidden" name="_method" value="DELETE">
             <input type='submit' value="delete"/>
