@@ -1,8 +1,12 @@
 require 'idea_box'
+require './lib/idea_box/image_uploader'
+require 'pry'
 
 class IdeaBoxApp < Sinatra::Base
   set :method_override, true
   set :root, 'lib/app'
+  get('/styles.css') { scss :styles }
+  get('/uploads') { }
 
   not_found do
     erb :error
@@ -12,7 +16,17 @@ class IdeaBoxApp < Sinatra::Base
     erb :index, locals: {ideas: IdeaStore.all.sort, idea: Idea.new(params)}
   end
 
+  get '/idea' do
+    erb :idea
+  end
+
   post '/' do
+    uploader = ImageUploader.new
+    uploader.store!(params['idea']['image'])
+    uploader.store!(params['idea']['resource_image'])
+    params['idea']['images'] = params['idea']['image'][:filename]
+    params['idea']['resource_images'] = params['idea']['resource_image'][:filename]
+    params_without_image = params['idea'].delete('image') && params['idea'].delete('resource_image')
     IdeaStore.create(params[:idea])
     redirect '/'
   end
@@ -42,6 +56,7 @@ class IdeaBoxApp < Sinatra::Base
   get '/:tag' do |tag|
     ideas = IdeaStore.find_tags(tag)
     erb :tags, locals: {:tag => tag, :ideas => ideas}
+
   end
 
   get '/:id/details' do |id|

@@ -1,36 +1,32 @@
-    <h1>IdeaBox</h1>
-    <form action='/' method='POST'>
-      <p>
-      Your Idea:
-      </p>
-      <input type='text' name='idea[title]'/><br/>
-      <textarea name='idea[description]'></textarea><br/>
-      <input type='text' name='idea[tags]'/><br/>
-      <input type='text' name='idea[resource1]'/><br/>
-      <input type='text' name='idea[resource2]'/><br/>
-      <input type='text' name='idea[resource3]'/><br/>
-       <input type='submit'/>
-    </form>
+    <div class ='nav'><h1>IdeaBox  <a href='/idea'>New Idea</a>  <a href='/exsisting'>Exsisting Idea</a>  <a href='/tag'>Tags</a></div>
+    <br/><br/>
 
-    <h3>Exsisting Ideas</h3>
+    <br/><br/>
+    <div id="header"><h3>Exsisting Ideas</h3>
 
-    <ul>
+
       <% ideas.each do |idea| %>
-        <li>
+      <div class="existing_ideas">
           <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
             <input type='submit' value="+"/>
           </form>
-          <%= idea.title %><br/>
-          <%= idea.description %><br/>
-          <a href="/<%= idea.id %>/edit">Edit</a>
+          <b><%= idea.title %></b><br/>
+          <%= idea.description %><br/><br/>
+          <b>tags:</b>
           <% idea.tags.each do |tag| %>
-          <a href="/<%= tag %>"><%= tag %></a><br/>
-          <% end %>
-          <a href="/<%= idea.id %>/details">Details</a>
+          <a href="/<%= tag %>"><%= tag %></a>
+          <% end %><br/>
+          <form action='/<%= idea.id %>/details' method='GET'>
+            <input type='submit' value='details' />
+          </form>
+          <form action='/<%= idea.id %>/edit' method='GET'>
+            <input type='submit' value='edit' />
+          </form>
           <form action='/<%= idea.id %>' method='POST'>
             <input type="hidden" name="_method" value="DELETE">
             <input type='submit' value="delete"/>
-          </form>
-        </li>
+          </form><br/><br/>
+        </div>
       <% end %>
-    </ul>
+
+  </div>

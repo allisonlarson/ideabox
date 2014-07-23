@@ -1,0 +1,29 @@
+body {
+  font-family: Helvetica;
+  background-color: #D8D8D8;
+}
+
+
+div {
+  float: left;
+  border: 5px solid #000000;
+  margin: 10px;
+  width: 250px;
+}
+
+#header {
+  background-color: #FFFFFF;
+  border: 5px solid #000000;
+  width: 1220px;
+}
+
+.nav{
+  display: inline;
+  width: 1220px;
+  background-color: #FFFFFF;
+  border: none;
+}
+
+form {
+  display: inline;
+}

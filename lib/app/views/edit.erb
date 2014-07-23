@@ -1,18 +1,24 @@
-  <h1>IdeaBox</h1>
+<h1>IdeaBox</h1>
 
-  <form action='/<%= idea.id %>' method='POST'>
-    <p>
-      <% if idea.id %>
-        Edit your Idea:
-      <% else %>
-        Your Idea:
-      <% end %>
-    </p>
+<form action='/<%= idea.id %>' method='POST'>
+  <p>
     <% if idea.id %>
-      <input type="hidden" name="_method" value="PUT" />
+      Edit your Idea:
+    <% else %>
+      Your Idea:
     <% end %>
-    <input type='text' name='idea[title]' value="<%= idea.title %>"/><br/>
-    <textarea name='idea[description]'><%= idea.description %></textarea><br/>
-    <input type='text' name='idea[tags]' value="<%= idea.tags.join(',') %>"/><br/>
-    <input type='submit'/>
-  </form>
+  </p>
+  <% if idea.id %>
+    <input type="hidden" name="_method" value="PUT" />
+  <% end %>
+  Title:<input type='text' name='idea[title]' value="<%= idea.title %>"/><br/>
+  Description:<textarea name='idea[description]'><%= idea.description %></textarea><br/>
+  Tags:<input type='text' name='idea[tags]' value="<%= idea.tags.join(',') %>"/><br/>
+  Image:<input type='file' name='idea[image]' value="<%= idea.image %>"?><br/>
+  Resource:<input type='text' name='idea[resource1]' value="<%= idea.resource1 %>"/><br/>
+  Resource Image:<input type='file' name='idea[resource_image]' value"<%= idea.image %>"/><br/>
+  Resource:<input type='text' name='idea[resource3]' value="<%= idea.resource3 %>"/><br/>
+
+  <input type='submit'/>
+
+</form>

@@ -1,38 +1,15 @@
 ---
 ideas:
-- title: 'test '
-  description: test test test test
-  tags: test, test, test
-  resource1: test.com
-  resource2: test.com
-  resource3: test.com
-- title: test
-  description: test test
-  tags: test, test, TEST
-  resource1: test test
-  resource2: ''
-  resource3: ''
-- title: test
-  description: test test
-  tags: test, test, test
-  resource1: ''
-  resource2: ''
-  resource3: ''
-- title: test
-  description: test test test
-  tags: test, test, test
-  resource1: test.com
-  resource2: ''
-  resource3: ''
-- title: tessst
-  description: tesssst
-  tags: test, TEST, Test
-  resource1: ''
-  resource2: ''
-  resource3: ''
-- title: test
-  description: 'test test '
-  tags: test, test
-  resource1: test
-  resource2: ''
-  resource3: ''
+- title: Boats
+  description: A bathtub is just a reverse boat.
+  tags: bath, boat, test
+  resource1: the internet
+  resource3: stuff
+  images: iXDX8.jpg
+  resource_images: room.jpg
+- title: American Beerty
+  description: Do you ever feel like a paper bag?
+  tags: movie, beer, test
+  resource1: theater
+  resource3: stuff.com
+  resource_images: woods.jpg
