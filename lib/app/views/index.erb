@@ -1,32 +1,28 @@
-    <div class ='nav'><h1>IdeaBox  <a href='/idea'>New Idea</a>  <a href='/exsisting'>Exsisting Idea</a>  <a href='/tag'>Tags</a></div>
+<div class= 'container'>
+  <div class='row'>
+    <div class='col-xs-12'>
+
+      <div class ='hidden-xs nav ideas'><h1><a href= '/'>IdeaBox</a>  <a href='/idea'>NewIdea</a>  <a href='/existing'>AllIdeas</a></div>
+      <div class ='visible-xs-block small_nav ideas'><h1><a href= '/'>IdeaBox</a>  <a href='/idea'>NewIdea</a>  <a href='/existing'>AllIdeas</a></div>
     <br/><br/>
-
-    <br/><br/>
-    <div id="header"><h3>Exsisting Ideas</h3>
-
-
+  </div>
+  </div>
+  <div class='row ideas'>
       <% ideas.each do |idea| %>
-      <div class="existing_ideas">
-          <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
+      <div class='col-lg-6 col-sm-12'>
+      <div class="existing_ideas" style="background-image: url('/uploads/<%=idea.images%>');">
+      <span>
+          <b><%= idea.title %><span class='spacer'></span></b><br/><br/><br/>
+        </span><form action='/<%= idea.id %>/details' method='GET' style="display: inline">
             <input type='submit' value="+"/>
           </form>
-          <b><%= idea.title %></b><br/>
-          <%= idea.description %><br/><br/>
-          <b>tags:</b>
+          <span class='tags'>
           <% idea.tags.each do |tag| %>
           <a href="/<%= tag %>"><%= tag %></a>
-          <% end %><br/>
-          <form action='/<%= idea.id %>/details' method='GET'>
-            <input type='submit' value='details' />
-          </form>
-          <form action='/<%= idea.id %>/edit' method='GET'>
-            <input type='submit' value='edit' />
-          </form>
-          <form action='/<%= idea.id %>' method='POST'>
-            <input type="hidden" name="_method" value="DELETE">
-            <input type='submit' value="delete"/>
-          </form><br/><br/>
-        </div>
-      <% end %>
+          <% end %><br/></span></span>
 
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>

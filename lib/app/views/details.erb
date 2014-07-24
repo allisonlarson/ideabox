@@ -1,15 +1,36 @@
-<h1><%= idea.title %></h1>
-<p>
-  <%= idea.description %><br/><br>
-  TAGS: <% idea.tags.each do |tag| %>
-  <a href="/<%= tag %>"><%= tag %></a>
-  <% end %><br/>
-  <img src='/uploads/<%=idea.images%>' height=300px width=600px/> <br/><br/>
-  RESOURCES:<br/>
-  <%= idea.resource1 %><br/>
-  <img src="/uploads/<%= idea.resource_images %>"/><br/>
-  <%= idea.resource3 %><br/>
-</p><br/><br/>
-<form action='/' method='GET'>
-  <input type='submit' value='home' />
-</form>
+<div class= 'container'>
+  <div class='row'>
+    <div class='col-xs-12'>
+
+      <div class ='hidden-xs nav'><h1><a href= '/'>IdeaBox</a>  <a href='/idea'>NewIdea</a>  <a href='/existing'>AllIdeas</a></div>
+      <div class ='visible-xs-block small_nav'><h1><a href= '/'>IdeaBox</a>  <a href='/idea'>NewIdea</a>  <a href='/existing'>AllIdeas</a></div>
+    <br/><br/>
+  </div>
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 ideas">
+      <h1 class="title"><b><%= idea.title %></b></h1>
+      <br/><form action='/<%= idea.id %>/edit' method='GET'>
+        <input type='submit' value='edit' />
+      </form><br/><br/>
+      <p>
+        <%= idea.description %><br/><br>
+        tags: <% idea.tags.each do |tag| %>
+        <a href="/<%= tag %>"><%= tag %></a>
+        <% end %><br/>
+        <img class="img-responsive" src='/uploads/<%=idea.images%>' height=300px width=600px/> <br/><br/>
+        <h3>Resources:</h3><br/>
+        <%= idea.resource1 %><br/>
+        <%= idea.resource3 %><br/>
+      </p><br/><br/>
+      <form action='/<%= idea.id %>' method='POST'>
+        <input type="hidden" name="_method" value="DELETE">
+        <input type='submit' value="delete"/>
+      </form><br/><br/>
+      <form action='/' method='GET'>
+        <input type='submit' value='IdeaBox' />
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,32 @@
 ---
 ideas:
-- title: Boats
-  description: A bathtub is just a reverse boat.
-  tags: bath, boat, test
-  resource1: the internet
-  resource3: stuff
-  images: iXDX8.jpg
-  resource_images: room.jpg
 - title: American Beerty
-  description: Do you ever feel like a paper bag?
-  tags: movie, beer, test
-  resource1: theater
-  resource3: stuff.com
-  resource_images: woods.jpg
+  description: Sometimes I feel like a plastic bag. Usually it means I've been drinking
+    too much.
+  tags: American, beer, plastic
+  images: woods.jpg
+  resource1: ''
+  resource3: ''
+- title: Dog Boats
+  description: I like water, Daeva likes boats.. I'll buy my dog a boat.
+  tags: dog, boat, beer
+  resource1: ''
+  resource3: ''
+  images: iXDX8.jpg
+- title: PizzaCloud
+  description: A website where people can make pizzas and share them for free.
+  rank: 1
+  id: 2
+  tags:
+  - pizza
+  - " web"
+  - " profit"
+  images: room.jpg
+  resource1: ''
+  resource3: ''
+- title: Coffee
+  description: If I inject caffeine interveinously I'll probably die.
+  tags: coffee, death
+  resource1: ''
+  resource3: ''
+  images: xWNR4Ad.jpg

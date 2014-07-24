@@ -6,7 +6,6 @@ class IdeaBoxApp < Sinatra::Base
   set :method_override, true
   set :root, 'lib/app'
   get('/styles.css') { scss :styles }
-  get('/uploads') { }
 
   not_found do
     erb :error
@@ -20,20 +19,23 @@ class IdeaBoxApp < Sinatra::Base
     erb :idea
   end
 
+  get '/existing' do
+    erb :existing, locals: {ideas: IdeaStore.all.sort}
+  end
+
   post '/' do
     uploader = ImageUploader.new
     uploader.store!(params['idea']['image'])
-    uploader.store!(params['idea']['resource_image'])
-    params['idea']['images'] = params['idea']['image'][:filename]
-    params['idea']['resource_images'] = params['idea']['resource_image'][:filename]
-    params_without_image = params['idea'].delete('image') && params['idea'].delete('resource_image')
+    params['idea']['images']          = params['idea']['image'][:filename]
+    params[:idea]['images']           = params['idea']['image'][:filename]
+    params_without_image              = params['idea'].delete('image')
     IdeaStore.create(params[:idea])
     redirect '/'
   end
 
   delete '/:id' do |id|
     IdeaStore.delete(id.to_i)
-    redirect '/'
+    redirect '/existing'
   end
 
   get '/:id/edit' do |id|
@@ -50,11 +52,19 @@ class IdeaBoxApp < Sinatra::Base
     idea = IdeaStore.find(id.to_i)
     idea.like!
     IdeaStore.update(id.to_i, idea.to_h)
-    redirect '/'
+    redirect '/existing'
+  end
+
+  post '/:id/dislike' do |id|
+    idea = IdeaStore.find(id.to_i)
+    idea.dislike!
+    IdeaStore.update(id.to_i, idea.to_h)
+    redirect '/existing'
   end
 
   get '/:tag' do |tag|
     ideas = IdeaStore.find_tags(tag)
+    # binding.pry
     erb :tags, locals: {:tag => tag, :ideas => ideas}
 
   end

@@ -56,8 +56,8 @@ class IdeaStore
   end
 
   def self.find_tags(tag)
-    database.transaction do
-      database['ideas'].select {|idea| idea['tags'].any? do|tags| tags.upcase == tag.upcase end}
+    all.select do |idea|
+      idea.tags.any? {|tags| tags == tag}
     end
   end
 

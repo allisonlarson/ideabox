@@ -1,9 +1,19 @@
-<h1>IdeaBox</h1>
+<div class= 'container'>
+  <div class='row'>
+    <div class='col-xs-12'>
+
+      <div class ='hidden-xs nav'><h1><a href= '/'>IdeaBox</a>  <a href='/idea'>NewIdea</a>  <a href='/existing'>AllIdeas</a></div>
+      <div class ='visible-xs-block small_nav'><h1><a href= '/'>IdeaBox</a>  <a href='/idea'>NewIdea</a>  <a href='/existing'>AllIdeas</a></div>
+    <br/><br/>
+  </div>
+  </div>
+
 
 <form action='/<%= idea.id %>' method='POST'>
+  <div class="new_idea"
   <p>
     <% if idea.id %>
-      Edit your Idea:
+      <h3>Edit your Idea:</h3>
     <% else %>
       Your Idea:
     <% end %>
@@ -11,14 +21,44 @@
   <% if idea.id %>
     <input type="hidden" name="_method" value="PUT" />
   <% end %>
-  Title:<input type='text' name='idea[title]' value="<%= idea.title %>"/><br/>
-  Description:<textarea name='idea[description]'><%= idea.description %></textarea><br/>
-  Tags:<input type='text' name='idea[tags]' value="<%= idea.tags.join(',') %>"/><br/>
-  Image:<input type='file' name='idea[image]' value="<%= idea.image %>"?><br/>
-  Resource:<input type='text' name='idea[resource1]' value="<%= idea.resource1 %>"/><br/>
-  Resource Image:<input type='file' name='idea[resource_image]' value"<%= idea.image %>"/><br/>
-  Resource:<input type='text' name='idea[resource3]' value="<%= idea.resource3 %>"/><br/>
+  <form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="Title" class="col-sm-2 control-label">Title</label>
+    <div class="col-sm-10">
+    <input type='text' name='idea[title]' value="<%= idea.title %>"/><br/>
+  </div>
+</div>
+  <div class="form-group">
+    <label for="description" class="col-sm-2 control-label">Description</label>
+    <div class="col-sm-10">
+  <textarea name='idea[description]'><%= idea.description %></textarea><br/>
+</div>
+</div>
+  <div class="form-group">
+    <label for="tags" class="col-sm-2 control-label">Tags:</label>
+    <div class="col-sm-10">
+    <input type='text' name='idea[tags]' value="<%= idea.tags.join(',') %>"/><br/>
+  </div>
+</div>
+  <div class="form-group">
+    <!-- <label for="image" class="col-sm-2 control-label">Image:</label> -->
+    <!-- <div class="col-sm-10"> -->
+    <input type='hidden' name='idea[images]' value="<%= idea.images %>"/>
+  <!-- </div> -->
+</div>
+  <div class="form-group">
+    <label for="resource" class="col-sm-2 control-label">Resource:</label>
+    <div class="col-sm-10">
+    <input type='text' name='idea[resource1]' value="<%= idea.resource1 %>"/><br/>
+  </div>
+</div>
 
-  <input type='submit'/>
-
-</form>
+  <div class="form-group">
+    <label for="resource_two" class="col-sm-2 control-label">Resource:</label>
+    <div class="col-sm-10">
+    <input type='text' name='idea[resource3]' value="<%= idea.resource3 %>"/><br/>
+  </div></div>
+     <input type='submit'/>
+   </div>
+ </div>
+ </form>

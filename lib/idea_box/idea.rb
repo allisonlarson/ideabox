@@ -7,18 +7,16 @@ class Idea
               :tags,
               :images,
               :resource1,
-              :resource_images,
               :resource3
 
   def initialize(attributes = {})
     @title            = attributes["title"]
     @description      = attributes["description"]
-    @rank             = attributes["rank"] || 0
+    @rank             = attributes["rank"] || 1
     @id               = attributes["id"]
     @tags             = parse_tags(attributes["tags"])
     @images           = attributes["images"]
     @resource1        = attributes["resource1"]
-    @resource_images  = attributes["resource_images"]
     @resource3        = attributes["resource3"]
   end
 
@@ -36,19 +34,27 @@ class Idea
 
   def to_h
     {
-      "title" => title,
-      "description" => description,
-      "rank" => rank,
-      "tags" => tags,
-      "images" => images,
-      "resource1" => resource1,
-      "resource_image" => resource_image,
-      "resource3" => resource3
+      "title"          => title,
+      "description"    => description,
+      "rank"           => rank,
+      "id"             => id,
+      "tags"           => tags,
+      "images"         => images,
+      "resource1"      => resource1,
+      "resource3"      => resource3
     }
   end
 
   def like!
     @rank += 1
+  end
+
+  def dislike!
+    if @rank > 0
+      @rank -= 1
+    else
+      @rank
+    end
   end
 
   def <=>(other)

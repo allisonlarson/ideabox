@@ -1,29 +1,56 @@
 body {
   font-family: Helvetica;
   background-color: #D8D8D8;
+
 }
 
-
-div {
-  float: left;
-  border: 5px solid #000000;
-  margin: 10px;
-  width: 250px;
-}
-
-#header {
+.ideas {
   background-color: #FFFFFF;
-  border: 5px solid #000000;
-  width: 1220px;
+  padding: 15px;
 }
 
-.nav{
-  display: inline;
-  width: 1220px;
+.nav, .small_nav {
   background-color: #FFFFFF;
-  border: none;
+  width: 100%;
+}
+
+.small_nav h1 {
+  font-size: 20px;
+}
+
+
+
+.existing_ideas{
+  margin: 15px;
+  padding: 10px;
 }
 
 form {
   display: inline;
+}
+
+
+span {
+   color: black;
+   font: 24px/45px Helvetica, Sans-Serif;
+   letter-spacing: -1px;
+   background: rgb(225, 225, 225); /* fallback color */
+   background: rgba(225, 225, 225, 0.9);
+   padding: 5px;
+}
+
+.tags{
+  font: 15px/20px Helvetica, Sans-Serif;
+  letter-spacing: 0px;
+  padding: 3px;
+}
+
+.spacer {
+   padding:0 5px;
+}
+
+.new_idea {
+  background-color: #FFFFFF;
+  border: 1px solid black;
+  padding: 10px;
 }
